@@ -1,0 +1,394 @@
+/*
+Chat
+*/
+
+#chat {
+  display: flex;
+}
+
+#buttonChat {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: rgb(57, 159, 26);
+    border: none;
+    cursor: pointer;
+    transition-duration: .3s;
+    margin-left: 1%;
+}
+
+.inputbox {
+  position: relative;
+  width: 100%;
+}
+
+.inputbox input {
+  position: relative;
+  width: 98%;
+  padding: 10px 10px 10px;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  color: #23242a;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+.inputbox i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: rgb(152, 159, 90);
+  border-radius: 4px;
+  transition: 0.5s;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.inputbox input:valid ~i,
+.inputbox input:focus ~i {
+  height: 44px;
+}
+
+/*
+Button Files 
+*/
+
+/*
+Background
+*/
+
+#funtionalities{
+  align-items: center;
+  padding: 15px;
+  background-color: #d8ffec;
+}
+
+/*
+Button disabled
+*/
+
+.buttonFiles[disabled]{
+  background-color: gray;
+}
+
+/*
+Normal button
+*/
+
+.buttonFiles{
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+}
+
+.buttonFiles {
+  background-color: rgb(0, 0, 0);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: .3s;
+  overflow: hidden;
+  margin-right: 10px;
+  margin-top: 10px;
+  }
+
+/*
+Cursor in activated buttons 
+*/
+
+.buttonFiles:not([disabled]){
+  cursor: pointer;
+  position: relative;
+}
+
+
+
+/*
+*/
+
+
+
+  .svgFiles{
+    fill: white;
+    transition-duration: .3s;
+  }
+  
+  #svgDelete {
+    width: 25px;
+  }
+
+  .buttonFiles:hover:not([disabled]){
+    width: 140px;
+    border-radius: 50px;
+    transition-duration: .3s;
+    align-items: center;
+  }
+
+  #deleteFile:hover:not([disabled]) {
+    background-color: rgb(236, 106, 106);
+  }
+
+  #uploadFile:hover:not([disabled]) {
+    background-color: rgb(106, 238, 102);
+  }
+
+  #searchFile:hover:not([disabled]) {
+    background-color: rgb(104, 115, 230);
+  }
+
+  #database:hover:not([disabled]) {
+    background-color: rgb(104, 115, 230);
+  }
+
+
+  .buttonFiles:hover:not([disabled]) .svgFiles{
+    width: 50px;
+    transition-duration: .3s;
+    transform: translateY(60%);
+  }
+  
+  #deleteFile:hover:not([disabled]) #svgDelete {
+    width: 50px;
+  }
+
+  .buttonFiles::before{
+    position: absolute;
+    top: -20px;
+    color: white;
+    content: "";
+    transition-duration: .3s;
+    font-size: 2px;
+  }
+  
+  #deleteFile:not([disabled])::before {
+    content: "Delete";
+  }
+  
+  #uploadFile:not([disabled])::before {
+    content: "Upload";
+  }
+
+  #searchFile:not([disabled])::before {
+    content: "Search";
+  }  
+
+  #database:not([disabled])::before {
+    content: "Data base";
+  }  
+
+  .buttonFiles:hover::before {
+    font-size: 13px;
+    opacity: 1;
+    transform: translateY(30px);
+    transition-duration: .3s;
+  }
+
+  #inputFile{
+    display: none;
+  }
+
+  #divButtonFiles{
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-around;
+  }
+
+
+  /*
+  Conversation space
+  */
+
+#answers {
+    margin-bottom: 5%;
+}
+
+#conversation{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.message {
+  margin: 4px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.sent {
+  background-color: rgb(163, 193, 178);
+  color: black;
+  
+}
+
+.received {
+  background-color: #f0f0f0;
+  align-self: flex-end;
+}
+
+.chatApp{
+  background-color: rgb(207, 214, 148);
+  margin-left: 3%;
+  margin-right: 3%;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+DB form
+*/
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contenido {
+  background-color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  width: 30%;
+  height: auto;
+}
+
+.btn-cerrar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+#cerrar-form{
+  width: 7dvh;
+  height: 7%;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: inline-block;
+}
+
+.btn-cerrar:hover + #close-text {
+  opacity: 1;
+}
+
+#close-text{
+  top: 0;
+  left: -60px; 
+  background-color: #ffffff;
+  color: #ff0000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+#closeDBForm{
+  width: 100%;
+  height: 100%;
+}
+
+
+.inputDB{
+  position: relative;
+  margin: 7% auto;
+}
+
+.inputDBinfo{
+  width: 50%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background-color: transparent;
+  outline: none;
+  font-size: 20px;
+}
+
+.underline{
+  margin-left: 24%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 51%;
+  background-color: #333;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.inputDB :focus ~ .underline,
+.inputDB:valid ~ .underline {
+  transform: scaleX(1);
+}
+
+
+#btn-db{
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.7em 10%;
+  border: 3px solid #60f5ad;
+  border-radius: 15px;
+  position: relative;
+  color: #3fa372;
+  text-decoration: none;
+  transition: 0.3s ease all;
+  z-index: 1;
+  margin-bottom: 2%;
+}
+
+#btn-db:before {
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: '';
+  background-color: #60f5ad;
+  z-index: -1;
+  border-radius: 10px;
+}
+
+#btn-db:hover, #btn-db:focus {
+  color: rgb(0, 0, 0);
+}
+
+#btn-db:hover:before, #btn-db:focus:before {
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+#btn-db:active {
+  transform: scale(0.9);
+}
+
+
+
+
+
+
+
+
+
+
+  
